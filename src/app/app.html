@@ -1,5 +1,11 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <app-product-list></app-product-list>
-<app-product-details></app-product-details>
+<app-product-details [ProductName]="ProductName()" [ProductDescription]="ProductDescription()" [ProductPrice]="ProductPrice()" [ProductAvailability]="ProductAvailability()" (massegsend)="receiveMessage($event)" (massegsend2)="receiveMessage2($event)"></app-product-details>
+<hr>
+<h2>{{ message }}</h2>
+<h2>{{ qunnum }}</h2>
+<hr>
+<app-shopping-cart [product1]="ProductName()" [price1]="ProductPrice()" [Quantity]="qunnum"></app-shopping-cart>
 <app-footer></app-footer>
+

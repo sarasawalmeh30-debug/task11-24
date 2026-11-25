@@ -4,7 +4,18 @@
   <h3>{{ productName }}</h3>
   <p>{{ productDescription }}</p>
   <p>Price: {{ productPrice }}$</p>
-  <p>Quantity: {{ quantity }}</p>
+  
+  <p>Quantity: {{ quantity() }}</p>
   <p>Discount: {{ discountPercentage }}%</p>
   <p>Availability:{{ isAvailable ? 'Available' : 'Unavailable' }}</p>
+  <button (click)="increment()">increment</button>
+  <button (click)="Decrease ()">Decrease</button>
+  <button (click)="AddtoCartbutton ()">Add to Cart button </button>
+<hr>
+
+<p>{{ProductName}}</p>
+<p>{{ProductDescription}}</p>
+<p>{{ProductPrice}}</p>
+<p>{{ProductAvailability}}</p>
+
 </div>

@@ -7,9 +7,10 @@ import { Navbar } from './navbar/navbar';
 import { ProductList } from './product-list/product-list';
 import { ProductDetails } from './product-details/product-details';
 import { Footer } from './footer/footer';
+import { ShoppingCart } from './shopping-cart/shopping-cart';
 
 @NgModule({
-  declarations: [App, Header, Navbar, ProductList, ProductDetails, Footer],
+  declarations: [App, Header, Navbar, ProductList, ProductDetails, Footer, ShoppingCart],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners(), provideClientHydration()],
   bootstrap: [App],
