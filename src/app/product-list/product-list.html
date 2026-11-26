@@ -39,3 +39,121 @@
       <p>Price: ${{ products[4].price }}</p>
       <button [disabled]="!products[4].available" (click)="buyNow(products[4].name)"> Buy Now</button>
     </div>
+<hr>
+<div style="background-color:antiquewhite;">
+<table class="table" border="1px">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col">Category</th>
+      <th scope="col">Available</th>
+      <th scope="col">Discount</th>
+      <th>Available description</th>
+      <th>have discount </th>
+      <th>Action</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(item of products;track $index){
+    <tr>
+      <th scope="row">{{item.name}}</th>
+      <td [ngStyle]="{
+        'color': item.discount > 0 ? productpriceColorRED : productpriceColorBLACK,
+        'font-size': item.price > 500 ? fontsizeofpremiumproduct : '16px'
+      }">{{item.price}}</td>
+      <td>{{item.Category}}</td>
+      <td [ngClass]="{
+        'available-card':item.available==true,
+        'unavailable-card':item.available==false,
+
+      }">
+      {{item.available}}
+    </td>
+      <td [ngClass]="{
+        'discount-card':item.discount>0,
+         }">
+         {{item.discount}}%
+      </td>
+      <td>
+        @if(item.available){
+           <p>Available</p>
+        }@else{
+           <p>Out of Stock</p>
+        }
+      </td>
+      <td>
+        @if(item.discount>0){
+          <td>{{item.discount}}%</td>
+        }@else{
+           <p>No Discount</p>
+        }
+      </td>
+      <td>
+        @if(item.available){
+          <button>Bay now</button>
+        }
+      </td>
+      <td [ngClass]="{
+        'premium-card':item.price>500,
+      }" >
+        @if(item.price>500){
+          <p>Premium Product.</p>
+        }
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>
+</div>
+<hr>
+@switch(orderStatus){
+  @case('Pending'){
+    <p>Your order is waiting for confirmation.</p>
+  }
+  @case('Processing'){
+    <p>Your order is being prepared.</p>
+
+  }
+  @case('Shipped'){
+    <p>Your order has been shipped.</p>
+
+  }
+  @case('Delivered'){
+    <p>Your order has been delivered.</p>
+
+  }@default{
+    <p>Unknown Order Status.</p>
+  }
+}
+<hr>
+
+<hr><section>
+  <h2>Product Categories</h2>
+
+  <button (click)="selectedCategory = 'All Products'">
+    All Products
+  </button>
+
+  <button (click)="selectedCategory = 'Electronics'">
+    Electronics
+  </button>
+
+  <button (click)="selectedCategory = 'Accessories'">
+    Accessories
+  </button>
+</section>
+
+<hr>
+
+@if(selectedCategory == 'All Products') {
+  <h3>Showing all products.</h3>
+}
+@else if(selectedCategory == 'Electronics') {
+  <h3>Showing electronics products.</h3>
+}
+@else if(selectedCategory == 'Accessories') {
+  <h3>Showing accessories products.</h3>
+}
+<hr>

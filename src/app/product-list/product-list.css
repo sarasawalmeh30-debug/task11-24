@@ -1,0 +1,12 @@
+.discount-card{
+background-color:yellow;
+}
+.available-card{
+ color:green
+}
+.unavailable-card{
+ color: red;
+}
+.premium-card{
+color: blueviolet;
+}
